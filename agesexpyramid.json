@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "params": [
+    {
+      "name": "YearSelect",
+      "value": 2025,
+      "bind": {
+        "input": "range",
+        "min": 2001,
+        "max": 2025,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "StateSelect",
+      "select": {
+        "type": "point",
+        "fields": ["state"],
+        "on": "click",
+        "clear": "dblclick"
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "title": "Select an Australian state",
+      "width": 480,
+      "height": 400,
+      "data": {
+        "url": "data/topo/aus_state.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_50m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.name",
+          "as": "state"
+        }
+      ],
+      "projection": {
+        "type": "mercator"
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "StateSelect",
+            "value": "#377EB8"
+          },
+          "value": "#DCE6EF"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Proportion of Population by age",
+      "width": 400,
+      "height": 400,
+      "data": {
+        "url": "data/prop_age_sex_01-25.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "toNumber(datum.Year) == YearSelect"
+        },
+        {
+          "calculate": "datum.State",
+          "as": "state"
+        },
+        {
+          "filter": {
+            "param": "StateSelect",
+            "empty": false
+          }
+        },
+        {
+          "calculate": "datum.gender == 'Male' ? -toNumber(datum.Count) : toNumber(datum.Count)",
+          "as": "population_signed"
+        }
+      ],
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "y": {
+          "field": "Age_group",
+          "type": "ordinal",
+          "title": "Age group",
+          "sort": [
+            "85+",
+            "80-84",
+            "75-79",
+            "70-74",
+            "65-69",
+            "60-64",
+            "55-59",
+            "50-54",
+            "45-49",
+            "40-44",
+            "35-39",
+            "30-34",
+            "25-29",
+            "20-24",
+            "15-19",
+            "10-14",
+            "5-9",
+            "0-4"
+          ]
+        },
+        "x": {
+          "field": "population_signed",
+          "type": "quantitative",
+          "title": "Population",
+          "scale": {
+            "domainMid": 0,
+            "nice":false,
+            "domain":[-0.1, 0.1]
+          },
+          "axis": {
+            "labelExpr": "abs(datum.value)"
+          }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Male", "Female"],
+            "range": ["#4F91C6", "#D98A9A"]
+          },
+          "title": "Sex",
+          "legend":{"orient": "bottom"}
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "Age_group",
+            "type": "ordinal",
+            "title": "Age group"
+          },
+          {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Sex"
+          },
+          {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

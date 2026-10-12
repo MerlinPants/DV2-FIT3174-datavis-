@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width":400,
+  "data": {"url": "data/migrant_job.csv"},
+  "title":{"text":"Proportion of labour force"},
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "yearmonth", "field": "Month",
+      "axis": {"domain": false, "format": "%Y"}
+    },
+    "y": {
+      "aggregate": "sum", "field": "value",
+      "stack": "normalize",
+      "axis": {
+        "title": "Share of workforce"
+      }
+
+    },
+    "color": {"field":"class", "scale":{"range": ["#db6216", "#cf8c63", "#1750ad", "#637da6"]},
+            "legend": {
+                "labelExpr": "datum.label === 'Migrant_fulltime' ? 'Migrant full-time' : datum.label === 'Migrant_parttime' ? 'Migrant part-time' : datum.label === 'Australian_fulltime' ? 'Australian full-time' : datum.label === 'Australian_parttime' ? 'Australian part-time' : datum.label"
+            }
+        }
+  }
+}

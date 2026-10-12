@@ -1,0 +1,76 @@
+Year,state,place_name,place,Median_Income
+2019,NSW,Greater Sydney,City,52103
+2019,NSW,Rest of NSW,Rest of State,44851
+2019,VIC,Greater Melbourne,City,50227
+2019,VIC,Rest of VIC,Rest of State,44363
+2019,QLD,Greater Brisbane,City,50797
+2019,QLD,Rest of QLD,Rest of State,45126
+2019,SA,Greater Adelaide,City,49307
+2019,SA,Rest of SA,Rest of State,42828
+2019,WA,Greater Perth,City,52572
+2019,WA,Rest of WA,Rest of State,48940
+2019,TAS,Greater Hobart,City,47535
+2019,TAS,Rest of TAS,Rest of State,42971
+2019,NT,Greater Darwin,City,61336
+2019,NT,Rest of NT,Rest of State,49203
+2019,ACT,Australian Capital Territory,City,64939
+2020,NSW,Greater Sydney,City,53305
+2020,NSW,Rest of NSW,Rest of State,45776
+2020,VIC,Greater Melbourne,City,51224
+2020,VIC,Rest of VIC,Rest of State,45609
+2020,QLD,Greater Brisbane,City,51869
+2020,QLD,Rest of QLD,Rest of State,46100
+2020,SA,Greater Adelaide,City,50024
+2020,SA,Rest of SA,Rest of State,43284
+2020,WA,Greater Perth,City,53831
+2020,WA,Rest of WA,Rest of State,49148
+2020,TAS,Greater Hobart,City,47830
+2020,TAS,Rest of TAS,Rest of State,44140
+2020,NT,Greater Darwin,City,61555
+2020,NT,Rest of NT,Rest of State,50980
+2020,ACT,Australian Capital Territory,City,66706
+2021,NSW,Greater Sydney,City,56848
+2021,NSW,Rest of NSW,Rest of State,48931
+2021,VIC,Greater Melbourne,City,53725
+2021,VIC,Rest of VIC,Rest of State,47958
+2021,QLD,Greater Brisbane,City,54387
+2021,QLD,Rest of QLD,Rest of State,48918
+2021,SA,Greater Adelaide,City,52424
+2021,SA,Rest of SA,Rest of State,45744
+2021,WA,Greater Perth,City,57300
+2021,WA,Rest of WA,Rest of State,52899
+2021,TAS,Greater Hobart,City,50313
+2021,TAS,Rest of TAS,Rest of State,46433
+2021,NT,Greater Darwin,City,65736
+2021,NT,Rest of NT,Rest of State,54830
+2021,ACT,Australian Capital Territory,City,69747
+2022,NSW,Greater Sydney,City,58206
+2022,NSW,Rest of NSW,Rest of State,50184
+2022,VIC,Greater Melbourne,City,56399
+2022,VIC,Rest of VIC,Rest of State,49976
+2022,QLD,Greater Brisbane,City,57106
+2022,QLD,Rest of QLD,Rest of State,51282
+2022,SA,Greater Adelaide,City,54874
+2022,SA,Rest of SA,Rest of State,47814
+2022,WA,Greater Perth,City,60360
+2022,WA,Rest of WA,Rest of State,55480
+2022,TAS,Greater Hobart,City,53324
+2022,TAS,Rest of TAS,Rest of State,48545
+2022,NT,Greater Darwin,City,69156
+2022,NT,Rest of NT,Rest of State,56499
+2022,ACT,Australian Capital Territory,City,72122
+2023,NSW,Greater Sydney,City,62180
+2023,NSW,Rest of NSW,Rest of State,53274
+2023,VIC,Greater Melbourne,City,59784
+2023,VIC,Rest of VIC,Rest of State,52409
+2023,QLD,Greater Brisbane,City,59968
+2023,QLD,Rest of QLD,Rest of State,53677
+2023,SA,Greater Adelaide,City,57401
+2023,SA,Rest of SA,Rest of State,49688
+2023,WA,Greater Perth,City,63138
+2023,WA,Rest of WA,Rest of State,58303
+2023,TAS,Greater Hobart,City,56852
+2023,TAS,Rest of TAS,Rest of State,50572
+2023,NT,Greater Darwin,City,70961
+2023,NT,Rest of NT,Rest of State,56199
+2023,ACT,Australian Capital Territory,City,75643

@@ -1,0 +1,151 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Migration to Australia by Region",
+    "anchor": "middle"
+  },
+  "width": 750,
+  "height": 500,
+  "projection": {
+    "type": "naturalEarth1",
+    "scale": 170,
+    "center": [30,0]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "./data/topo/worldmap.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_50m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8edf0",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "./data/migrant_CoB_96_25.csv"
+      },
+      "transform": [
+        {
+          "filter": "toNumber(datum.Year) === 2025"
+        }
+      ],
+      "mark": "rule",
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "dest_lon"
+        },
+        "latitude2": {
+          "field": "dest_lat"
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "legend": {
+            "title": "Origin region",
+            "orient": "right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "type": "nominal",
+            "title": "Origin region"
+          },
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          },
+          {
+            "field": "migrant_count",
+            "type": "quantitative",
+            "title": "Migrants",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "./data/migrant_CoB_96_25.csv"
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.3,
+        "size": 200
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size":{
+          "field":"Count",
+          "type": "quantitative",
+          "scale":{
+            "type": "sqrt"
+          },
+          "legend": {
+            "orient": "bottom",
+            "title": "People"
+          }
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale":{
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#D55E00",
+              "#CC79A7",
+              "#56B4E9",
+              "#F0E442",
+              "#000000"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "type": "nominal",
+            "title": "Region"
+          },
+          {
+            "field": "Count",
+            "type": "quantitative",
+            "format": ",",
+            "title": "People"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

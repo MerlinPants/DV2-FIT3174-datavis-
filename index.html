@@ -131,6 +131,10 @@
             </div>
         </div>
 
+        <div>
+            <div id="flowmap" class="vis-container"></div>
+        </div>
+
     </main>
 
     <script type="text/javascript">
@@ -141,13 +145,14 @@
         vegaEmbed('#comppop', './compop_change_line.json');
         vegaEmbed('#labourcomp', './labourcomp_area.json');
         vegaEmbed('#healthcare_', './healthcare_migrant_bar.json');
+        vegaEmbed('#flowmap', './flowmap.json');
     </script>
 
     <script>
         const bg = document.querySelector("body");
 
         window.addEventListener("scroll", () =>{
-            const offset = window.scrollY * 0.05;
+            const offset = window.scrollY * 0.02;
 
             document.body.style.setProperty(
                 "--parallax-offset",

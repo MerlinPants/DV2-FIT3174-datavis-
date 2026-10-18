@@ -1,0 +1,16 @@
+Year,state,place_name,place,Median_Income
+2023,NSW,Greater Sydney,City,62180
+2023,NSW,Rest of NSW,Rest of State,53274
+2023,VIC,Greater Melbourne,City,59784
+2023,VIC,Rest of VIC,Rest of State,52409
+2023,QLD,Greater Brisbane,City,59968
+2023,QLD,Rest of QLD,Rest of State,53677
+2023,SA,Greater Adelaide,City,57401
+2023,SA,Rest of SA,Rest of State,49688
+2023,WA,Greater Perth,City,63138
+2023,WA,Rest of WA,Rest of State,58303
+2023,TAS,Greater Hobart,City,56852
+2023,TAS,Rest of TAS,Rest of State,50572
+2023,NT,Greater Darwin,City,70961
+2023,NT,Rest of NT,Rest of State,56199
+2023,ACT,Australian Capital Territory,City,75643

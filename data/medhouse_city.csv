@@ -1,0 +1,17 @@
+city,type,price,lon,lat
+Sydney,Established houses,1487.6,151.209326,-33.8687546
+Melbourne,Established houses,850.0,144.9630528,-37.8142785
+Brisbane,Established houses,1155.0,153.0211689,-27.469738
+Adelaide,Established houses,975.0,138.5999558,-34.9280204
+Perth,Established houses,1010.0,115.84996,-31.95022
+Hobart,Established houses,750.0,147.3250559,-42.880663
+Darwin,Established houses,752.5,130.8419194,-12.4608439
+Canberra,Established houses,1030.0,149.1303017,-35.2826217
+Sydney,Attached dwellings,840.0,151.209326,-33.8687546
+Melbourne,Attached dwellings,590.0,144.9630528,-37.8142785
+Brisbane,Attached dwellings,830.1,153.0211689,-27.469738
+Adelaide,Attached dwellings,725.0,138.5999558,-34.9280204
+Perth,Attached dwellings,730.0,115.84996,-31.95022
+Hobart,Attached dwellings,600.0,147.3250559,-42.880663
+Darwin,Attached dwellings,445.5,130.8419194,-12.4608439
+Canberra,Attached dwellings,615.0,149.1303017,-35.2826217

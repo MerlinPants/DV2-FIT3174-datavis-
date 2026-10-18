@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "background": "#cfe3f0",
+    "width": 900,
+    "height": 400,
+    "title":{"text": "Australian mines 2026"},
+    "projection": {
+        "type": "mercator"
+    },
+    "layer": [
+        {
+            "data":{
+                "url": "data/topo/aus_state.json",
+                "format":{"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+            },
+            "mark":{
+                "type": "geoshape",
+                "fill": "#d8d4cc",
+                "stroke": "white",
+                "strokeWidth": 1.5
+            }
+        },
+        {
+            "data":{
+                "url": "data/mines.csv",
+                "format":{"type": "csv"}
+            },
+            "mark": {"type":"point", "filled":true},
+            "encoding": {
+                "longitude":{
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude":{
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "color":{
+                    "field":"Status",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Care and maintenance", "Developing mine", "Operating mine"],
+                        "range": ["#808080", "#1750ad", "#db6216"]
+                    },
+                    "legend":{
+                        "orient": "bottom"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Name",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Status",
+                        "type": "nominal",
+                        "title": "Region"
+                    }
+                ]
+            }
+        }
+    ]
+}

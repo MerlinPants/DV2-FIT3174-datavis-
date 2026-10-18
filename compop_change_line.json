@@ -4,18 +4,26 @@
   "title":{"text":"Natural increase vs Net overseas migration 81-26"},
   "data": {"url": "data/pop_compchange_state.csv"},
   "mark": "line",
+  "transform": [
+    {"calculate": "{'Natural_increase': 'Natural Increase', 'net_overseas_migration': 'Net overseas migration'}[datum.type] || datum.type", "as": "typeLabel"}
+  ],
   "encoding": {
     "x": {"field": "quarter", "type": "temporal"},
-    "y": {"field": "Value", "type": "quantitative"},
-    "color": {"field": "type",
+    "y": {"field": "Value", "type": "quantitative", "title": "Change"},
+    "color": {"field": "typeLabel",
               "type": "nominal",
               "scale": {
-                "domain": ["Natural_increase", "net_overseas_migration"],
+                "domain": ["Natural Increase", "Net overseas migration"],
                 "range": ["#1750ad", "#db6216"]
               },
               "legend":{
                 "orient": "bottom"
               }
-    }
+    },
+    "tooltip":[
+      {"field":"quarter", "type": "temporal", "title":"Quarter"},
+      {"field":"typeLabel", "type": "nominal","title":"Type"},
+      {"field": "Value", "type": "quantitative", "format":",", "title":"Change"}
+    ]
   }
 }

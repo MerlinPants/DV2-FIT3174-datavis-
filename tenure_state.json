@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 483,
+  "height": 320,
+  "data": {
+    "url": "data/Tenuretype_state.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [{
+    "name": "region",
+    "value": "Australia",
+    "bind": {"input": "select", "name": "Region: ",
+      "options": ["Australia", "NSW", "VIC", "QLD", "SA", "WA", "TAS", "NT", "ACT"]}
+  }],
+  "title": {"text": {"expr": "'Households by tenure in ' + region"}},
+  "transform": [
+    {"filter": "datum.state === region"},
+    {"joinaggregate": [{"op": "max", "field": "year", "as": "lastYear"}]}
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {"title": null, "format": "d", "values": [1996, 2016, 2021], "labelAngle": 0},
+      "scale": {"domain": [1994, 2021]}
+    },
+    "y": {
+      "field": "count",
+      "type": "quantitative",
+      "axis": {"format": ",.0f", "title": "Number of households"}
+    },
+    "color": {
+      "field": "tenure", "type": "nominal",
+      "legend": {
+        "title":null,
+        "orient": "bottom",
+        "symbolType": "stroke"
+      },
+      "scale": {
+        "domain": ["Owned outright", "Owned with mortgage", "Rented"],
+        "range": ["#1750ad", "#031533", "#e07b39"]
+      }
+    },
+    "tooltip":[
+      {"field":"year", "type": "quantitative", "format":"d", "title":"Year"},
+      {"field":"count", "type": "quantitative", "format":",", "title":"Number of households"}
+    ]
+  },
+  "layer": [
+    {"mark": {"type": "line", "point": {"filled": true, "size": 70}, "strokeWidth": 2.5}}
+  ]
+}

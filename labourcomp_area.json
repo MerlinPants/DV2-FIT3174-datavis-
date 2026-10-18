@@ -1,26 +1,43 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width":400,
-  "data": {"url": "data/migrant_job.csv"},
-  "title":{"text":"Proportion of labour force"},
+  "width": 390,
+  "data": {
+    "url": "data/migrant_job.csv",
+    "format": {"type": "csv", "parse": {"value": "number", "Month": "date"}}
+  },
+  "title": {"text": "Proportion of labour force"},
+  "transform": [
+    {"calculate": "{'Migrant_fulltime': 'Migrant full-time', 'Migrant_parttime': 'Migrant part-time', 'Australian_fulltime': 'Australian full-time', 'Australian_parttime': 'Australian part-time'}[datum.class] || datum.class", "as": "classLabel"},
+    {"joinaggregate": [{"op": "sum", "field": "value", "as": "monthTotal"}], "groupby": ["Month"]},
+    {"calculate": "datum.value / datum.monthTotal", "as": "share"},
+    {"calculate": "indexof(['Migrant part-time', 'Migrant full-time', 'Australian part-time', 'Australian full-time'], datum.classLabel)", "as": "classOrder"}
+  ],
   "mark": "area",
   "encoding": {
     "x": {
       "timeUnit": "yearmonth", "field": "Month",
-      "axis": {"domain": false, "format": "%Y"}
+      "axis": {"domain": false, "format": "%Y"},
+      "title": "Year"
     },
     "y": {
       "aggregate": "sum", "field": "value",
       "stack": "normalize",
-      "axis": {
-        "title": "Share of workforce"
-      }
-
+      "axis": {"title": "Share of workforce", "format": "%"}
     },
-    "color": {"field":"class", "scale":{"range": ["#db6216", "#cf8c63", "#1750ad", "#637da6"]},
-            "legend": {
-                "labelExpr": "datum.label === 'Migrant_fulltime' ? 'Migrant full-time' : datum.label === 'Migrant_parttime' ? 'Migrant part-time' : datum.label === 'Australian_fulltime' ? 'Australian full-time' : datum.label === 'Australian_parttime' ? 'Australian part-time' : datum.label"
-            }
-        }
+    "color": {
+      "field": "classLabel",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Migrant full-time", "Migrant part-time", "Australian full-time", "Australian part-time"],
+        "range": ["#db6216", "#cf8c63", "#1750ad", "#637da6"]
+      },
+      "legend": {"title": null, "orient": "bottom"}
+    },
+    "order": {"field": "classOrder", "type": "quantitative", "aggregate": "min"},
+    "tooltip": [
+      {"field": "Month", "type": "temporal", "timeUnit": "yearmonth", "title": "Month", "format": "%b %Y"},
+      {"field": "classLabel", "type": "nominal", "title": "Group"},
+      {"field": "share", "aggregate": "sum", "type": "quantitative", "title": "Share", "format": ".1%"}
+    ]
   }
 }

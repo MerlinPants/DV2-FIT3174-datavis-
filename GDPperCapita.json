@@ -1,0 +1,25 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "title":{"text": "GDP per Capita 1960-2025"},
+    "height":300,
+    "width":"container",
+    "autosize": {
+        "type": "fit",
+        "contains": "padding"
+    },
+    "data": {
+        "url": "data/GDPpc.csv"
+    },
+    "mark":"line",
+    "encoding": {
+        "x":{"field":"year", "type": "quantitative", "axis":{
+            "title": "Year", "format": "d"
+        }},
+        "y":{"field":"GDPperCapita", "type": "quantitative", "axis":{
+            "title": "GDP per Capita"}},
+        "tooltip": [
+            {"field":"year", "type": "quantitative", "format":"d", "title":"Year"},
+            {"field":"GDPperCapita", "type": "quantitative", "format":",", "title":"GDP per Capita"}
+        ]
+    }
+}

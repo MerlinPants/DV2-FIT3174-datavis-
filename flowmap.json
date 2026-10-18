@@ -5,7 +5,7 @@
     "text": "Migration to Australia by Region",
     "anchor": "middle"
   },
-  "width": 750,
+  "width": 845,
   "height": 500,
   "projection": {
     "type": "naturalEarth1",
@@ -23,9 +23,9 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e8edf0",
+        "fill": "#d8d4cc",
         "stroke": "white",
-        "strokeWidth": 0.5
+        "strokeWidth": 1.5
       }
     },
     {
@@ -56,10 +56,7 @@
         "color": {
           "field": "region",
           "type": "nominal",
-          "legend": {
-            "title": "Origin region",
-            "orient": "right"
-          }
+          "legend": null
         },
         "tooltip": [
           {
@@ -89,7 +86,9 @@
         "type": "point",
         "filled": true,
         "opacity": 0.3,
-        "size": 200
+        "size": 200,
+        "stroke":"black",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -107,7 +106,7 @@
             "type": "sqrt"
           },
           "legend": {
-            "orient": "bottom",
+            "orient": "right",
             "title": "People",
             "values":[2000000, 4000000, 6000000, 8000000]
           }
@@ -141,6 +140,19 @@
             "title": "People"
           }
         ]
+      }
+    },
+    {
+      "data": {"url": "./data/migrant_CoB_96_25.csv"},
+      "transform": [
+        {"filter": "toNumber(datum.Year) === 2025"},
+        {"calculate": "datum.region === 'Europe' ? datum.lat - 15 : datum.lat", "as": "label_lat"}
+      ],
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "dy": -14},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "label_lat", "type": "quantitative"},
+        "text": {"field": "region", "type": "nominal"}
       }
     }
   ],

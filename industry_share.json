@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {"text": "Share of GDP for sectors"},
+  "height":300,
+  "width":"container",
+  "autosize": {
+        "type": "fit",
+        "contains": "padding"
+   },
+  "data": {"url": "data/indus_shareGDP.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Share",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "industry",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Others", "Industry", "Services"],
+        "range": ["#808080", "#1750ad", "#db6216"]
+      },
+      "legend":{
+        "orient": "bottom"
+      },
+      "title": "Industry"
+    },
+    "tooltip":[
+      {"field":"year", "type": "ordinal", "format":"d", "title":"Year"},
+      {"field":"industry", "type": "nominal", "title":"Sector"},
+      {"field":"Share", "type": "quantitative"}
+    ]
+  }
+}

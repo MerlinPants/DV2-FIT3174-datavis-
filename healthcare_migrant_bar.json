@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "height":300,
-  "width":315,
-  "title":{"text":"Healthcare worker proprotion"},
+  "width":300,
+  "title":{"text":"Healthcare worker proportion"},
   "data": { "url": "data/Healthcare_migrant_prop.csv"},
   "encoding": {
     "y": {"field": "Job", "type":"nominal"}
@@ -19,7 +19,8 @@
       },
       "color": {
         "field": "class",
-        "scale": {"range": ["#db6216", "#1750ad"]}
+        "scale": {"range": ["#db6216", "#1750ad"]},
+        "legend": {"orient": "bottom"}
       }
     }
   }, {

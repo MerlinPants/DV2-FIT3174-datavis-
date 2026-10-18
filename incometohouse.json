@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title":{"text":"Median Income vs Median House Price (Sydney)"},
+  "width":525,
+  "height":300,
+  "data": {"url": "data/incometohouse.csv"},
+  "layer":[
+    {
+        "mark": {"type":"area", "color": "#1750ad"},
+        "encoding": {
+            "x": {"field": "year", "type": "quantitative", "scale":{"domain": [1950, 2024]}},
+            "y": {"field": "sydney median mouse", "type": "quantitative", "scale":{"type": "sqrt"}}
+        }
+    },
+    {
+        "data": {"url": "data/incometohouse.csv"},
+        "mark": {"type":"line", "color": "#db6216"},
+        "encoding": {
+            "x": {"field": "year", "type": "quantitative", "axis":{
+                "title":"Year", "format": "d"
+            }, "scale":{"domain": [1950, 2024]}},
+            "y": {"field": "annual earnings", "type": "quantitative", "axis": {"title":"Dollars"}}
+        }
+    },
+    {
+        "transform": [{"filter": "datum.year === 2024"}],
+        "mark":{"type": "text", "align":"left", "dx":213, "dy":80, "color":"#db6216", "fontSize":12},
+        "encoding": {"text":{"field":"annual earnings", "format":",.0f"}}
+    },
+    {
+        "transform": [{"filter": "datum.year === 2024"}],
+        "mark":{"type": "text", "align":"left", "dx":195, "dy":-120, "fontSize":12},
+        "encoding": {"text":{"field":"sydney median mouse", "format":",.0f"}}
+    }
+  ]
+}

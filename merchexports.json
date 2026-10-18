@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 450,
+  "title": {"text": "Merchandise exports 2025", "anchor": "middle"},
+  "data": {
+    "url": "data/merchandise_exports.csv",
+    "format": {"type": "csv", "parse": {"Exports": "number"}}
+  },
+  "transform": [
+    {"calculate": "datum['Exports']", "as": "exports"},
+    {"aggregate": [{"op": "sum", "field": "exports", "as": "exports"}], "groupby": ["Group"]},
+    {"joinaggregate": [{"op": "sum", "field": "exports", "as": "total"}]},
+    {"calculate": "datum.exports / datum.total", "as": "share"},
+    {"calculate": "datum.Group === 'Others' ? 0 : datum.exports", "as": "sortKey"},
+    {"window": [{"op": "sum", "field": "exports", "as": "cum"}],
+    "sort": [{"field": "sortKey", "order": "descending"}],
+    "frame": [null, 0]},
+    {"calculate": "(datum.cum - datum.exports / 2) / datum.total * 360", "as": "midDeg"},
+    {"calculate": "(datum.midDeg + 90) % 360", "as": "rawAngle"},
+    {"calculate": "datum.rawAngle > 90 && datum.rawAngle < 270 ? datum.rawAngle + 180 : datum.rawAngle", "as": "labelAngle"},
+    {"calculate": "format(datum.exports, ',.0f') + 'm'", "as": "labelText"}
+  ],
+  "encoding": {
+    "theta": {"field": "exports", "type": "quantitative", "stack": true},
+    "order": {"field": "sortKey", "type": "quantitative", "sort": "descending"},
+    "color": {
+      "field": "Group",
+      "type": "nominal",
+      "sort": {"field": "sortKey", "order": "descending"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 70, "outerRadius": 170, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "tooltip": [
+          {"field": "Group", "title": "Commodity"},
+          {"field": "exports", "title": "Exports ($m)", "format": ","},
+          {"field": "share", "title": "Share", "format": ".1%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.share >= 0.04"}],
+      "mark": {"type": "text", "radius": 120, "fontSize": 13},
+      "encoding": {
+        "text": {"field": "labelText", "type": "nominal"},
+        "angle": {"field": "labelAngle", "type": "quantitative", "scale": null},
+        "color": {"value": "black"}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}

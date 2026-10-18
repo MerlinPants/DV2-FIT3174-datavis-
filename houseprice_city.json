@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 780,
+  "height": 400,
+  "title":{"text":"Median house prices in major cities"},
+  "projection": {"type": "mercator"},
+  "params": [{
+    "name": "housing",
+    "value": "Established houses",
+    "bind": {"input": "select", "name": "Type: ", "options": ["Established houses", "Attached dwellings"]}
+  }],
+  "layer": [
+    {
+      "data": {
+        "url": "data/topo/aus_state.json",
+        "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e9e2d0", "stroke": "#a8a08c", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "data/medhouse_city.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [{"filter": "datum.type === housing"}],
+      "mark": {"type": "circle", "opacity": 0.6, "color":"red", "stroke": "black", "strokeWidth": 0.5},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "price",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 1500], "range": [0, 2500]},
+          "legend": {"title": "Price ($thousands)", "format": ",.0f", "values":[400, 600, 800, 1000,1200,1400]}
+        },
+        "color": {"value": "#e07b39"},
+        "tooltip": [
+          {"field": "city"},
+          {"field": "type", "title": "Housing type"},
+          {"field": "price", "title": "Price ($thousands)", "format": ","}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}

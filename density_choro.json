@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "width": 500,
   "height": 400,
-  "title":{"text": "Population Density per State/Territory"},
+  "title":{"text": "Population Density per State/Territory in 2026"},
   "projection": {
     "type": "mercator"
   },
@@ -20,7 +20,7 @@
         "fields":["density(ppl/km2)"]
     }
   }],
-  "mark":{"type": "geoshape", "stroke":"black","strokeWidth": 1},
+  "mark":{"type": "geoshape", "stroke":"white","strokeWidth": 1.5},
   "encoding": {
     "color":{"field":"density(ppl/km2)", "type": "quantitative", "scale":{"scheme":"orangered", "type": "log"},
   "title":"Ppl/km2", "legend": {

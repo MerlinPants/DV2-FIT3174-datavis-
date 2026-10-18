@@ -17,6 +17,10 @@
         }},
         "y":{"field":"Auspop", "type": "quantitative", "axis":{
             "title": "Population"},
-        "scale":{"domain": [10000000, 30000000]}}
+        "scale":{"domain": [10000000, 30000000]}},
+        "tooltip": [
+            {"field":"quarter", "type":"temporal", "title":"Quarter"},
+            {"field":"Auspop", "type": "quantitative", "title":"Population", "format":","}
+        ]
     }
 }

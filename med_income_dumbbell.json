@@ -78,12 +78,13 @@
             "domain": ["City", "Rest of State"],
             "range": ["#911a24", "#e6959c"]
           },
+          "legend":{"orient": "bottom"},
           "title": "Area"
         },
         "tooltip": [
           {"field": "state", "type": "nominal"},
           {"field": "place_name", "type": "nominal", "title": "Location"},
-          {"field": "Median_Income", "type": "nominal", "title": "Median Income"}
+          {"field": "Median_Income", "type": "nominal", "title": "Median Income", "format":","}
         ]
       }
     }

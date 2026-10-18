@@ -13,10 +13,27 @@
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
 </head>
+
+<header class="header">
+    <h3>Data Visualization 2</h3>
+
+    <nav class="nav-buttons">
+        <a href="#Population">Population</a>
+        <a href="#Economy">Economy</a>
+        <a href="#Migration">Migration</a>
+        <a href="#Challenges">Challenges</a>
+        <a href="#References">References</a>
+    </nav>
+</header>
 
 <header class = 'hero'>
     <h1>The Evolution of</h1>
@@ -24,9 +41,10 @@
 </header>
 
 <body>
-    
-
     <main class = 'main-content'>
+
+        <h2 id="Population" class="section-title"> Population overall </h1>
+
         <div class="pure-g">
             <div class = 'pure-u-1-3'>
                 <p>
@@ -43,7 +61,6 @@
                 <p class = 'pop_count_sub'>as of 12/10/2026</p>
             </div>
         </div>
-        
 
         <div id="popline" class="vis-container"></div>
 
@@ -53,18 +70,10 @@
             </div>
             <div class = 'pure-u-1-3'>
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti reprehenderit quas non non tempor animi non rerum est ducimus praesentium accusamus consectetur sed pariatur est
+                    Australia is one of the most sparsely populated countries in the world. This is due to the deserts and semi-arid terrain which takes up about 70% to 80%. These ares are located across central and western regions of the continent.
                 </p>
-            </div>
-        </div>
-
-        <div class = 'pure-g'>
-            <div class = 'pure-u-2-3'>
-                <div id="med_income" class = 'vis-container'></div>
-            </div>
-            <div class = 'pure-u-1-3'>
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti reprehenderit quas non non tempor animi non rerum est ducimus praesentium accusamus consectetur sed pariatur est
+                    The most densely populated state is Victory, which is due to its location near the coastline, making it a good centre for business and educational instuition. Earning its name, "The Education State".
                 </p>
             </div>
         </div>
@@ -72,12 +81,12 @@
         <div class = 'pure-g'>
             <div class = 'pure-u-1-3'>
                 <p>
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    Australia's age pyramid is closer to a column with a wide middle as the base has narrowed as fertility has fallen below replacement level. The widest bands sit in the late 20s to 40s, a bulge fed heavily by migration, since many arrivals are
                 </p>
             </div>
             <div class = 'pure-u-1-3'>
                 <p>
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    young adults who come to study or work. The result is a gradually ageing population, with a median age in the late 30s and roughly one in six people aged 65 or over. Migration slows this shift but doesn't reverse it, since migrants age too.
                 </p>
             </div>
             <div class = 'pure-u-1-3'>
@@ -89,53 +98,150 @@
             <div id="age_pyramid" class = 'vis-container'></div>
         </div>
 
+
+        <h2 id="Economy" class="section-title">Economy</h2>
+
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="GDPpc" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <p class="text-besides-plots">
+                    Australia's GDP per capita has risen strongly since 1960, with a few interruption  due to recessions in the 80s and 90s.
+                </p>
+                <p>
+                    From 1991, Australia then went nearly three decades without a recession, helped by economic reforms, rising productivity and, in the 2000s, the mining boom. As demand for commodity raise prices and Australia's abundancy of natural resources.
+                </p> 
+            </div>
+        </div>
+
+        <div class = 'pure-g'>
+            <div class = 'pure-u-2-3'>
+                <div id="med_income" class = 'vis-container'></div>
+            </div>
+            <div class = 'pure-u-1-3'>
+                <p class="text-besides-plots">
+                    In most Australian states, people in the capital city earn more than people in the rest of the state. The widest gap is in Northern Territory, which is due to a high concentration of government, defense, and administrative service providers, driving up the average.
+                </p>
+                <p class="text-besides-plots">
+                    The gap has been slowly widening due to capital areas attracting high skilled workers interstate and international. While the regional areas have older population with retirees, which pulls the median down.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'pure-g'>
+            <div class = 'pure-u-2-3'>
+                <div id="tenure" class = 'vis-container'></div>
+            </div>
+            <div class = 'pure-u-1-3'>
+                <p class="text-besides-plots">
+                    The number of people renting has gone up since 1996, to nearly as much as the number of people owning properties outright, and in some states they have overtaken.
+                </p>
+                <p class="text-besides-plots">
+                    This is due to the rapid increase of the population from immigration. The housing market cannot keep up with the demand. As time goes on, this would only get worse if nothing is done. We explore this a bit deeper in the later sections.
+                </p>
+            </div>
+        </div>
+        
+        <div>
+            <div id="mines" class="vis-container"></div>
+        </div>
+
+        <div class = 'pure-g'>
+            <div class = 'pure-u-2-3'>
+                <div id="sectorGDPshare" class = 'vis-container'></div>
+            </div>
+            <div class = 'pure-u-1-3'>
+                <p class="text-besides-plots">
+                    As mentioned earlier, the 2000s mining boom contributed a lot to Australia's economic raise. However, in recent years, Australia has transitioned into a service-based economy, with 2/3 of GDP made up from the service sector. The increase in the service sector could be attributed to the increase in immigration, which we will look at in the next section.
+                </p>
+            </div>
+        </div>
+
+
+        <h2 id="Migration" class="section-title">Migration</h3>
+
+        <div>
+            <div id="flowmap" class="vis-container"></div>
+        </div>
+
         <div class = 'pure-g'>
             <div class = 'pure-u-2-3'>
                 <div id="comppop" class="vis-container"></div>
             </div>
             <div class = 'pure-u-1-3'>
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    Natural increase is the increase from subtracting deaths from births, and net overseas migration is from subtracting people leaving to people coming in to Australia. 
                 </p>
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    After 2005, the net overseas migration has been consistently higher than natural increase. Especially after COVID-19, the net overseas migration shot up to over 160,000 people, and continued to be consistently higher than natural increase.
                 </p>
             </div>
         </div>
         
         <div class = 'pure-g'>
-            <div class = 'pure-u-2-3'>
+            <div class = 'pure-u-1-2'>
                 <div id="labourcomp" class="vis-container"></div>
             </div>
-            <div class = 'pure-u-1-3'>
-                <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
-                </p>
-                <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
-                </p>
-            </div>
-        </div>
-
-        <div class = 'pure-g'>
-            <div class = 'pure-u-2-3'>
+            <div class = 'pure-u-1-2'>
                 <div id="healthcare_" class="vis-container"></div>
             </div>
-            <div class = 'pure-u-1-3'>
+        </div>
+
+        <div class="pure-g">
+            <div class = 'pure-u-1-2'>
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    With the increases in immigration, the proportion of migrant in the labour force has also increased. Reaching about 30% of the labour force being migrants.
                 </p>
+            </div>
+            <div class="pure-u-1-2">
                 <p class="text-besides-plots">
-                    lorem ipsum dolor sit amet consectetur adipiscing elit nihil sint ea pariatur ad aliquip sit eligendi ullamco assumenda cillum in labore deserunt aut eos reprehenderit ullamco eligendi omnis aliquip aliqua anim labore dolore corrupti
+                    Looking at the medical field, one of the bigger field of the service sector. With nearly 50% of medical practitioners being migrants.
                 </p>
             </div>
         </div>
 
-        <div>
-            <div id="flowmap" class="vis-container"></div>
+
+        <h2 id="Challenges" class="section-title">Challenges</h2>
+
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <p>One of the biggest challenges Australia is facing is the housing crisis. As mentioned earlier, the population is ever increasing due to high immigration. High demands push house prices up, and median income could not keep up.</p>
+                <p>By 2023, the median income is around 80,600 australian dollars, while the median house prices in Sydney was 1,647,395. This means the a house is a bit over 20 years of the median annual income.</p>
+                <p>While Sydney has the highest prices in the whole of Australia, looking at the maps below the cheapest dwelling are townhouses (attached dwellings), in Darwin. Which are still over 5 years of the median annual income.</p>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="income_house" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-u-2-3">
+            <div id="medhouseprice" class="vis-container"></div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <p>China takes about a third of Australia's merchandise exports, far more than any other single destination. The next largest buyers, Japan, South Korea, India and the United States, each take only a small slice by comparison.</p>
+                <p>Most of the trade is in bulk commodities, especially iron ore, where China buys more than any other country and a large share of the world's seaborne supply goes to its steel mills. Because Chinese demand is tied to construction and infrastructure, a property slowdown in China can reduce Australian export earnings.</p>
+                <p>The second problem is political. The 2020 restrictions on barley, wine, coal and other goods showed it. Those goods were hit while iron ore, which China could not easily source elsewhere, kept flowing. The revealed an asymmetry: Australia needs the market more than the market needs any single Australian product</p>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="export" class="vis-container"></div>
+            </div>
         </div>
 
     </main>
+
+    <footer id="References" class="lefoot">
+        <div class="footer-title">References</div>
+        <div class="footer-text">
+            <p>Australian Bureau of Statistic (ABS), census data: <a href="https://www.abs.gov.au/census/find-census-data">link</a></p>
+            <p>Wealth & Security Planners (WSP), Australian Housing Affordability: <a href="https://www.wsp.com.au/wp-content/uploads/resources/explainers/australian_housing_affordability.html">link</a></p>
+            <p>Statista, Australia: Distribution of gross domestic product across economic sectors from 2013 to 2023: <a href="https://www.statista.com/statistics/375558/australia-gdp-distribution-across-economic-sectors/?srsltid=AU7gw4W6p69uFiOSCWGE-qMlbiJjnPhHDGxXxO5JhZ9_BB4uDnF0n0_k">link</a></p>
+            <p>World bank group, GDP per capita - Australia: <a href="https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?end=2025&locations=AU&start=1960&view=chart">link</a></p>
+        </div>
+        <div class="author">Dan Vo - 35307846</div>
+    </footer>
 
     <script type="text/javascript">
         vegaEmbed('#popline', './pop_line.json');
@@ -146,13 +252,20 @@
         vegaEmbed('#labourcomp', './labourcomp_area.json');
         vegaEmbed('#healthcare_', './healthcare_migrant_bar.json');
         vegaEmbed('#flowmap', './flowmap.json');
+        vegaEmbed('#GDPpc', './GDPperCapita.json');
+        vegaEmbed('#sectorGDPshare', './industry_share.json');
+        vegaEmbed('#mines', './mines.json');
+        vegaEmbed('#tenure', './tenure_state.json');
+        vegaEmbed('#income_house', './incometohouse.json');
+        vegaEmbed('#medhouseprice', './houseprice_city.json');
+        vegaEmbed('#export', './merchexports.json');
     </script>
 
     <script>
         const bg = document.querySelector("body");
 
         window.addEventListener("scroll", () =>{
-            const offset = window.scrollY * 0.02;
+            const offset = window.scrollY * 0.01;
 
             document.body.style.setProperty(
                 "--parallax-offset",

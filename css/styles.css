@@ -1,15 +1,7 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('ttf');
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-weight: 200 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Oswald';
-  src: url('fonts/Oswald/Oswald-VariableFont_wght.ttf') format('ttf');
-  font-weight: 200 700;
-  font-display: swap;
 }
 
 body {
@@ -36,19 +28,19 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    font-family: 'Oswald',
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header h1 {
     margin: 0;
     font-size: 28px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav-buttons {
     display: flex;
     align-items: center;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     gap: 70px;
 }
 
@@ -83,7 +75,7 @@ body::before {
 .section-title {
   counter-increment: section;
   padding-top: 20px;
-  font-family: 'Oswald',
+  font-family: 'Montserrat', sans-serif;
 }
 
 .section-title::before {
@@ -106,14 +98,14 @@ header {
   width: 960px;
   margin: auto;
   padding: 20px;
-  font-family: 'Inter';
+  font-family: 'Montserrat', sans-serif;
 }
 
 footer {
   width: 960px;
   margin: auto;
   padding: 20px;
-  font-family: 'Inter';
+  font-family: 'Montserrat', sans-serif;
 }
 
 .lefoot {
@@ -142,7 +134,7 @@ button, input, select, textarea {
   background-color: white;
   padding: 20px;
   box-sizing: content-box;
-  font-family: 'Oswald';
+  font-family: 'Montserrat', sans-serif;
 }
 
 .main-content p {

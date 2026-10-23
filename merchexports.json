@@ -35,7 +35,7 @@
       "mark": {"type": "arc", "innerRadius": 70, "outerRadius": 170, "stroke": "white", "strokeWidth": 1},
       "encoding": {
         "tooltip": [
-          {"field": "Group", "title": "Commodity"},
+          {"field": "Group", "title": "Group"},
           {"field": "exports", "title": "Exports ($m)", "format": ","},
           {"field": "share", "title": "Share", "format": ".1%"}
         ]

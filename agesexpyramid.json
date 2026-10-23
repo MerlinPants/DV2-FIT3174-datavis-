@@ -126,7 +126,7 @@
         "x": {
           "field": "population_signed",
           "type": "quantitative",
-          "title": "Population",
+          "title": "Proportion",
           "scale": {
             "domainMid": 0,
             "nice":false,
@@ -165,7 +165,7 @@
           {
             "field": "Count",
             "type": "quantitative",
-            "title": "Population",
+            "title": "Proportion",
             "format": ","
           }
         ]

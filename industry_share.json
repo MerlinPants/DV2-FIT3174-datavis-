@@ -29,7 +29,7 @@
       "legend":{
         "orient": "bottom"
       },
-      "title": "Industry"
+      "title": "Sector"
     },
     "tooltip":[
       {"field":"year", "type": "ordinal", "format":"d", "title":"Year"},

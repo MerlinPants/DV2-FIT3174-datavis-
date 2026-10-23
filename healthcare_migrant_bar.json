@@ -20,7 +20,7 @@
       "color": {
         "field": "class",
         "scale": {"range": ["#db6216", "#1750ad"]},
-        "legend": {"orient": "bottom"}
+        "legend": {"orient": "bottom", "title":null}
       }
     }
   }, {

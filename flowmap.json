@@ -57,25 +57,7 @@
           "field": "region",
           "type": "nominal",
           "legend": null
-        },
-        "tooltip": [
-          {
-            "field": "region",
-            "type": "nominal",
-            "title": "Origin region"
-          },
-          {
-            "field": "Year",
-            "type": "quantitative",
-            "title": "Year"
-          },
-          {
-            "field": "migrant_count",
-            "type": "quantitative",
-            "title": "Migrants",
-            "format": ","
-          }
-        ]
+        }
       }
     },
     {
